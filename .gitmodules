@@ -1,0 +1,3 @@
+[submodule "nyudv2_class_mapping"]
+	path = nyudv2_class_mapping
+	url = https://github.com/howard-mahe/nyudv2_class_mapping.git
