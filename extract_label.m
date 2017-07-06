@@ -1,5 +1,11 @@
 function extract_label(fp)
+addpath('utils/');
+
 DEBUG_DISPLAY_13_LABELS_IMAGES = false;
+
+% as done by Shelhamer to obtain 425x560 images
+X = 41:600;
+Y = 46:470;
 
 % Handa's colormap13
 colormap13 = [0,        0,          0;
@@ -25,7 +31,7 @@ for c = 1:numel(challenges)
     label_dir = fullfile('data', ['label' challenges{c}]);
     mkdir(label_dir);
     for i=1:1449
-        im_label = labels(:,:, i);
+        im_label = labels(Y,X,i);
         
         % substitue values
         old_label = 1:894;
@@ -40,7 +46,7 @@ for c = 1:numel(challenges)
                 colormap(colormap13);
                 
                 figure(2);
-                imshow(images(:,:,:,i));
+                imshow(images(Y,X,:,i));
                 
                 pause(1);
             end
